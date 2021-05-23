@@ -1,0 +1,42 @@
+---
+###
+###
+# Add Yum Repo
+#
+#
+# Changelogs:
+# - v1: 23/05/2021 - initial release
+#
+# Execute command:
+# ansible-playbook add-yum-repo.yml
+###
+###
+- name: Add Yum Repo
+  hosts: test
+  become: yes
+  become_user: root
+  vars:
+    disable_all_existing_repos: false       # Options: [true, false]
+    repo_name: my-rhel-repo                 # No whitespace allowed
+    repo_url: <url / file>
+    repo_gpgcheck: no
+
+
+  tasks:
+    - name: Add Yum Repo
+      block:
+      - name: Disable all existing repos
+        shell: yum-config-manager --disable '*'
+        args:
+          executable: /bin/bash
+        when: disable_all_existing_repos | bool
+
+      - name: Add Yum Repo
+        yum_repository:
+          name: "{{ repo_name }}"
+          description: "{{ repo_name }}"
+          baseurl: "{{ repo_url }}"
+          gpgcheck: "{{ repo_gpgcheck }}"
+          enabled: yes
+
+      when: ansible_distribution=="CentOS" or ansible_distribution=="RedHat"
