@@ -7,7 +7,7 @@
 # - v1: 23/05/2021 - initial release
 #
 # Execute command:
-# ansible-playbook ansible-setup-clients.yml --extra-vars "host=<host name>" [-i <path to ansible host file>] -u <existing remote user> -k -K
+# ansible-playbook ansible-setup-clients.yml --extra-vars "host=<ip address>" [-i <path to ansible host file>] -u <existing remote user> -k -K
 ###
 ###
 ---
@@ -16,7 +16,7 @@
   become: yes
   become_user: root
   vars:
-    remote_ansible_user: "<linux user>"
+    remote_ansible_user: "ansibleadm"
     ssh_pri_key: "/root/.ssh/id_rsa"
     ssh_pub_key: "/root/.ssh/id_rsa.pub"
     ssh_port: 22
