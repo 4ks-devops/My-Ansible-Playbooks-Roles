@@ -4,10 +4,8 @@
 #
 #
 # Changelogs:
-# - v1: 23/05/2021 - initial release
-#
-# Execute command:
-# ansible-playbook ansible-setup-clients.yml --extra-vars "host=<host name>" [-i <path to ansible host file>] -u <existing remote user> -k -K
+# - v1.0: 23/05/2021 - initial release
+# - v1.1: 26/05/2021 - added architecture
 ###
 ###
 ---
@@ -18,11 +16,18 @@
   tasks:
   - name: OS Family
     debug: msg="{{ ansible_os_family }}"
+
   - name: Distribution
     debug: msg="{{ ansible_distribution }}"
+
   - name: Distribution Release
     debug: msg="{{ ansible_distribution_release }}"
+
   - name: Distribution version
     debug: msg="{{ ansible_distribution_version}}"
+
   - name: Distribution major version
     debug: msg="{{ ansible_distribution_major_version }}"
+
+  - name: Architecture
+    debug: msg="{{ ansible_architecture }}"
