@@ -5,7 +5,8 @@
 #
 #
 # Changelogs:
-# - v1: 23/05/2021 - initial release
+# - v1.0: 23/05/2021 - initial release
+# - v1.1: 28/05/2021 - added yum-utils installation
 #
 # Execute command:
 # ansible-playbook add-yum-repo.yml
@@ -25,6 +26,12 @@
   tasks:
     - name: Add Yum Repo
       block:
+      - name: Install yum-utils 
+        yum:
+          name: yum-utils
+          state: latest
+        when: disable_all_existing_repos | bool
+
       - name: Disable all existing repos
         shell: yum-config-manager --disable '*'
         args:
