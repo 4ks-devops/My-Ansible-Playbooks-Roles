@@ -33,3 +33,9 @@
 
   - name: Show Fail2ban status
     debug: msg={{ fail2ban.stdout_lines }}
+
+  - name: Start and enable FirewallD service
+    systemd:
+      name: firewalld
+      state: started
+      enabled: yes

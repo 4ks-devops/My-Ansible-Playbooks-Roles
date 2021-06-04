@@ -28,3 +28,15 @@
 
   - name: Show Fail2ban status
     debug: msg={{ fail2ban.stdout_lines }}
+
+  - name: Install UFW
+    apt:
+      name: ufw
+      state: present
+      autoclean: yes
+
+  - name: Start and enable UFW service
+    systemd:
+      name: ufw
+      state: started
+      enabled: yes
