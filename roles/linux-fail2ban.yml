@@ -1,0 +1,19 @@
+###
+###
+# Linux Fail2ban
+#
+#
+# Changelogs:
+# - v1: 04/06/2021 - initial release
+#
+# Execute command:
+# ansible-playbook linux-fail2ban.yml
+###
+###
+---
+- name: Linux Fail2ban
+  hosts: test
+  become: yes
+  become_user: root
+  roles:
+  - linux-fail2ban
