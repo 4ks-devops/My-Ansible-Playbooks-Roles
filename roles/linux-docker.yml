@@ -1,0 +1,19 @@
+###
+###
+# Linux Docker
+#
+#
+# Changelogs:
+# - v1: 07/06/2021 - initial release
+#
+# Execute command:
+# ansible-playbook linux-docker.yml
+###
+###
+---
+- name: Linux Docker
+  hosts: test
+  become: yes
+  become_user: root
+  roles:
+  - linux-docker

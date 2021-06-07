@@ -1,0 +1,34 @@
+---
+  ###
+  ###
+  # SETUP DOCKER COMPOSE
+  ###
+  - name: Install Python 3 PIP
+    yum:
+      name:
+      - python3-pip
+      state: latest
+      update_cache: yes
+
+  - name: Update PIP
+    pip: 
+      name: pip
+      state: latest
+
+  - name: Install docker-compose
+    pip: 
+      name: docker-compose
+      state: latest
+
+  - name: Create a symbolic link
+    lineinfile:
+      path: /root/.bash_profile
+      regexp: "^PATH.*"
+      line: PATH=$PATH:$HOME/bin:/usr/local/bin
+
+  - name: Get Docker Compose version
+    shell: source /root/.bash_profile && docker-compose --version
+    register: docker_compose_version
+
+  - name: Show Docker Compose version
+    debug: msg="{{ docker_compose_version.stdout_lines }}"
