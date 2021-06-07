@@ -6,6 +6,10 @@ A Work-in-Progress (WIP), with more Playbooks and Roles adding regularly.
 ## Ansible Tips and Tricks
 Refer to [My Ansible Tips and Tricks](https://gist.github.com/d3athkai/3b1c6becc41d79f45332f238791ceb3d).  
   
+# Recommended Ansible Settings
+In `/etc/ansible/ansible.cfg`, under `[defaults]`, add:  
+`interpreter_python=/usr/bin/python3`
+  
 ## Playbooks
 | Playbook  | Description  | Usage  |
 | ------------- | ------------- | ------------- |
@@ -18,4 +22,5 @@ Refer to [My Ansible Tips and Tricks](https://gist.github.com/d3athkai/3b1c6becc
 | ------------- | ------------- | ------------- |
 | linux-updates  | To perform OS Updates for CentOS / Red Hat / Ubuntu / Debian / Raspberry Pi OS.<br>It will reboot the host after updating and wait for the host to boot.<br>It has the options of enabling logging for both available updates and installed updates in the logging directory specified.  | 1. Update hosts in `linux-updates.yml`<br>2. Update variables in `roles/linux-updates/defaults/main.yml`<br>3. Execute the playbook:<br>`ansible-playbook linux-updates.yml`  |
 | linux-fail2ban  | To setup Fail2ban for CentOS / Ubuntu / Debian / Raspberry Pi OS.<br>Multiple failed ssh attempts will result in IP block in UFW/Firewalld.  | 1. Update hosts in `linux-fail2ban.yml`<br>2. Update variables in `roles/linux-fail2ban/defaults/main.yml`<br>3. Execute the playbook:<br>`ansible-playbook linux-fail2ban.yml`  |
+| linux-docker  | To setup Docker for CentOS / Ubuntu / Debian / Raspberry Pi OS.<br>It has the options of creating a user to manage Docker and installing Docker Compose.  | 1. Update hosts in `linux-docker.yml`<br>2. Update variables in `roles/linux-docker/defaults/main.yml`<br>3. Execute the playbook:<br>`ansible-playbook linux-docker.yml`  |
   
