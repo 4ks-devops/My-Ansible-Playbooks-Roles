@@ -12,7 +12,7 @@
     debug: msg="{{ pre_kernel_version.stdout_lines }}"
 
 
-  - name: Loggging for Available Updates to {{ logging_dir }} directory
+  - name: Log Available Updates to {{ logging_dir }} directory
     shell: apt update && apt list --upgradable >> available_updates_`date +'%y%m%d-%H%M%S'`.txt
     args:
       chdir: "{{ logging_dir }}"
