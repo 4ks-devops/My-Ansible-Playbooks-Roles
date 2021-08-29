@@ -5,6 +5,7 @@
 #
 # Changelogs:
 # - v1: 23/05/2021 - initial release
+# - v2: 29/08/2021 - removed uid
 #
 # Execute command:
 # ansible-playbook ansible-setup-clients.yml --extra-vars "host=<ip address>" [-i <path to ansible host file>] -u <existing remote user> -k -K
@@ -26,8 +27,7 @@
   - name: Create Ansible Remote User {{ remote_ansible_user }} for Ubuntu or Debian
     user:
       name: "{{ remote_ansible_user }}"
-      uid: 2000
-      comment: Ansible
+      comment: "Ansible Automation"
       group: sudo
       password: '*'
       expires: -1
@@ -38,8 +38,7 @@
   - name: Create Ansible Remote User {{ remote_ansible_user }} for CentOS or Red Hat
     user:
       name: "{{ remote_ansible_user }}"
-      uid: 2000
-      comment: Ansible
+      comment: "Ansible Automation"
       group: wheel
       password: '*'
       expires: -1
