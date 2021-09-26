@@ -1,4 +1,4 @@
-![GitHub](https://img.shields.io/github/license/d3athkai/MOTD-Login-Banner-for-Linux?style=plastic) ![GitHub](https://img.shields.io/badge/Python-2.7+-green?style=plastic) ![GitHub](https://img.shields.io/badge/Ansible-2.9+-blue?style=plastic)
+![GitHub](https://img.shields.io/github/license/d3athkai/MOTD-Login-Banner-for-Linux?style=plastic) ![GitHub](https://img.shields.io/badge/Python-2.7+-green?style=plastic) ![GitHub](https://img.shields.io/badge/Ansible-2.9+-blue?style=plastic) 
 
 # My Ansible Playbooks and Roles
 A Work-in-Progress (WIP), with more Playbooks and Roles adding regularly.  
@@ -20,7 +20,8 @@ In `/etc/ansible/ansible.cfg`, under `[defaults]`, add:
 ## Roles
 | Role  | Description  | Usage  |
 | ------------- | ------------- | ------------- |
-| linux-updates  | To perform OS Updates for CentOS / Red Hat / Ubuntu / Debian / Raspberry Pi OS.<br>It will reboot the host after updating and wait for the host to boot.<br>It has the options of enabling logging for both available updates and installed updates in the logging directory specified.  | 1. Update hosts in `linux-updates.yml`<br>2. Update variables in `roles/linux-updates/defaults/main.yml`<br>3. Execute the playbook:<br>`ansible-playbook linux-updates.yml`  |
-| linux-fail2ban  | To setup Fail2ban for CentOS / Ubuntu / Debian / Raspberry Pi OS.<br>Multiple failed ssh attempts will result in IP block in UFW/Firewalld.  | 1. Update hosts in `linux-fail2ban.yml`<br>2. Update variables in `roles/linux-fail2ban/defaults/main.yml`<br>3. Execute the playbook:<br>`ansible-playbook linux-fail2ban.yml`  |
-| linux-docker  | To setup Docker for CentOS / Ubuntu / Debian / Raspberry Pi OS.<br>It has the options of creating a user to manage Docker and installing Docker Compose.  | 1. Update hosts in `linux-docker.yml`<br>2. Update variables in `roles/linux-docker/defaults/main.yml`<br>3. Execute the playbook:<br>`ansible-playbook linux-docker.yml`  |
+| linux-updates  | To perform OS Updates for CentOS / RockyLinux / Red Hat / Ubuntu / Debian / Raspberry Pi OS.<br>It will reboot the host after updating and wait for the host to boot.<br>It has the options of enabling logging for both available updates and installed updates in the logging directory specified.  | 1. Update hosts in `linux-updates.yml`<br>2. Update variables in `roles/linux-updates/defaults/main.yml`<br>3. Execute the playbook:<br>`ansible-playbook linux-updates.yml`  |
+| linux-fail2ban  | To setup Fail2ban for CentOS / RockyLinux / Ubuntu / Debian / Raspberry Pi OS.<br>Multiple failed ssh attempts will result in IP block in UFW/Firewalld.  | 1. Update hosts in `linux-fail2ban.yml`<br>2. Update variables in `roles/linux-fail2ban/defaults/main.yml`<br>3. Execute the playbook:<br>`ansible-playbook linux-fail2ban.yml`  |
+| linux-docker  | To setup Docker for CentOS / RockyLinux / Ubuntu / Debian / Raspberry Pi OS.<br>It has the options of creating a user to manage Docker and installing Docker Compose.  | 1. Update hosts in `linux-docker.yml`<br>2. Update variables in `roles/linux-docker/defaults/main.yml`<br>3. Execute the playbook:<br>`ansible-playbook linux-docker.yml`  |
+  | linux-sssd  | To configure LDAP Client using SSSD for CentOS / RockyLinux / Ubuntu / Debian / Raspberry Pi OS so that the OS can be accessed by LDAP users.  | 1. Update hosts in `linux-sssd.yml`<br>2. Update variables in `roles/linux-sssd/defaults/main.yml`<br>3. Execute the playbook:<br>`ansible-playbook linux-sssd.yml`  |
   
