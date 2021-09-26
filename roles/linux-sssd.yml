@@ -1,0 +1,19 @@
+###
+###
+# Linux SSSD
+#
+#
+# Changelogs:
+# - v1: 26/09/2021 - initial release
+#
+# Execute command:
+# ansible-playbook linux-sssd.yml
+###
+###
+---
+- name: Linux SSSD
+  hosts: test
+  become: yes
+  become_user: root
+  roles:
+  - linux-sssd
