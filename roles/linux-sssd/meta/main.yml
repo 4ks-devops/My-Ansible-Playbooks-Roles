@@ -21,10 +21,10 @@ galaxy_info:
         - focal
     - name: Debian
       versions:
-        - buster
+        - bullseye
     - name: Rasbperry Pi
       versions:
-        - buster
+        - bullseye
 
   galaxy_tags:
     - apt
