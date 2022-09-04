@@ -10,7 +10,8 @@
 ###
 ---
 - name: Detect OS Family and Distribution
-
+  hosts: all
+  
   tasks:
   - name: OS Family
     debug: msg="{{ ansible_os_family }}"
