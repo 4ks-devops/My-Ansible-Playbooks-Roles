@@ -10,8 +10,6 @@
 ###
 ---
 - name: Detect OS Family and Distribution
-  hosts: test
-
 
   tasks:
   - name: OS Family
